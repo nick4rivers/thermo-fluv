@@ -7,6 +7,7 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
+      <th>Image</th>
       <th>Project</th>
       <th colspan="3"></th>
     </tr>
@@ -14,14 +15,15 @@
 
   <tbody>
     <% @sites.each do |site| %>
-      <tr>
-        <td><%= site.name %></td>
-        <td><%= site.description %></td>
-        <td><%= site.project %></td>
-        <td><%= link_to 'Show', site %></td>
-        <td><%= link_to 'Edit', edit_site_path(site) %></td>
-        <td><%= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= site.name %></td>
+      <td><%= site.description %></td>
+      <td><img src="<%= site.image %>"></td>
+      <td><%= site.project.name %></td>
+      <td><%= link_to 'Show', site %></td>
+      <td><%= link_to 'Edit', edit_site_path(site) %></td>
+      <td><%= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>

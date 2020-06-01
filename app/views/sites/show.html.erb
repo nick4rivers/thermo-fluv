@@ -11,8 +11,13 @@
 </p>
 
 <p>
-  <strong>Project:</strong>
-  <%= @site.project %>
+  <strong>Project Name:</strong>
+  <%= @site.project.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @site.image, alt: "This is alt text", class: "this-class" %>
 </p>
 
 <%= link_to 'Edit', edit_site_path(@site) %> |
