@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_162812) do
+ActiveRecord::Schema.define(version: 2020_06_02_224520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "data", force: :cascade do |t|
+    t.datetime "date_time"
+    t.float "temperature"
+    t.bigint "deployment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deployment_id"], name: "index_data_on_deployment_id"
+  end
 
   create_table "deployments", force: :cascade do |t|
     t.text "deploy_notes"
@@ -66,6 +75,7 @@ ActiveRecord::Schema.define(version: 2020_06_02_162812) do
     t.index ["type_id"], name: "index_units_on_type_id"
   end
 
+  add_foreign_key "data", "deployments"
   add_foreign_key "deployments", "sites"
   add_foreign_key "deployments", "units"
   add_foreign_key "sites", "projects"
