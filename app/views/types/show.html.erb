@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @type.model %>
+</p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @type.brand %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @type.url %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @type.image %>
+</p>
+
+<%= link_to 'Edit', edit_type_path(@type) %> |
+<%= link_to 'Back', types_path %>

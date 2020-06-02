@@ -37,3 +37,54 @@ puts "----- Seeded First Sites ------"
 end
 
 puts "----- Seeded Last Sites ------"
+
+Type.create!(
+  model: "Tid Bit V2",
+  brand: "Onset",
+  image: "https://via.placeholder.com/100x100",
+  url: "https://www.onsetcomp.com/products/data-loggers/utbi-001?creative=294992075720&keyword=%2Btidbit%20%2Blogger&matchtype=b&network=g&device=c&gclid=EAIaIQobChMI0pbepMjj6QIVhRx9Ch2spQoJEAAYASAAEgIEO_D_BwE"
+)
+
+Type.create!(
+  model: "Penant MX",
+  brand: "Onset",
+  image: "https://via.placeholder.com/100x100",
+  url: "https://www.onsetcomp.com/products/data-loggers/mx2201/"
+)
+
+puts "----- Seeded Logger Types ------"
+
+# TODO Seed Units
+5.times do |unit|
+  Unit.create!(
+    serial: "First Type - #{unit}",
+    status: "Active",
+    type_id: Type.first.id
+  )
+end
+
+5.times do |unit|
+  Unit.create!(
+    serial: "Last Type - #{unit}",
+    status: "Active",
+    type_id: Type.last.id
+  )
+end
+
+puts "----- Seeded Units ------"
+
+# TODO Seed Deployments
+
+# 3 times.do |deployment|
+#   Deployment.create!(
+#     deploy_notes: "I always felt like I could do anything. That’s the main thing people are controlled by!",
+#     deploy_date: Date.now,
+#     deploy_time: "",
+#     retrieve_status: "",
+#     retrieve_notes: "",
+#     retrieve_date: "",
+#     retrive_time: "",
+#     site_id: Site.first.id,
+#     unit_id: Unit.first.id
+#   )
+# end

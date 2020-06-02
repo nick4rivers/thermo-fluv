@@ -10,5 +10,14 @@
   <%= @project.description %>
 </p>
 
+<p>
+  <strong>Project Sites <%= @project.count_sites %> </strong>
+  <% @project.sites.each do |site| %>
+  <p>
+    <%= site.name  %>
+  </p>
+  <% end  %>
+</p>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

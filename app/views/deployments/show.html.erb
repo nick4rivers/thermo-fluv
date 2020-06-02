@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Deploy notes:</strong>
+  <%= @deployment.deploy_notes %>
+</p>
+
+<p>
+  <strong>Deploy date:</strong>
+  <%= @deployment.deploy_date %>
+</p>
+
+<p>
+  <strong>Deploy time:</strong>
+  <%= @deployment.deploy_time %>
+</p>
+
+<p>
+  <strong>Retrieve status:</strong>
+  <%= @deployment.retrieve_status %>
+</p>
+
+<p>
+  <strong>Retrieve notes:</strong>
+  <%= @deployment.retrieve_notes %>
+</p>
+
+<p>
+  <strong>Retrieve date:</strong>
+  <%= @deployment.retrieve_date %>
+</p>
+
+<p>
+  <strong>Retrieve time:</strong>
+  <%= @deployment.retrieve_time %>
+</p>
+
+<p>
+  <strong>Site:</strong>
+  <%= @deployment.site %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @deployment.unit %>
+</p>
+
+<%= link_to 'Edit', edit_deployment_path(@deployment) %> |
+<%= link_to 'Back', deployments_path %>

@@ -1,0 +1,62 @@
+<%= form_with(model: deployment, local: true) do |form| %>
+  <% if deployment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(deployment.errors.count, "error") %> prohibited this deployment from being saved:</h2>
+
+      <ul>
+      <% deployment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :deploy_notes %>
+    <%= form.text_area :deploy_notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :deploy_date %>
+    <%= form.date_select :deploy_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :deploy_time %>
+    <%= form.time_select :deploy_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :retrieve_status %>
+    <%= form.text_field :retrieve_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :retrieve_notes %>
+    <%= form.text_area :retrieve_notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :retrieve_date %>
+    <%= form.date_select :retrieve_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :retrieve_time %>
+    <%= form.time_select :retrieve_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :site_id %>
+    <%= form.text_field :site_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit_id %>
+    <%= form.text_field :unit_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

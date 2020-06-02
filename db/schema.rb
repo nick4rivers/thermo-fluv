@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_01_200327) do
+ActiveRecord::Schema.define(version: 2020_06_02_162812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "deployments", force: :cascade do |t|
+    t.text "deploy_notes"
+    t.date "deploy_date"
+    t.time "deploy_time"
+    t.string "retrieve_status"
+    t.text "retrieve_notes"
+    t.date "retrieve_date"
+    t.time "retrieve_time"
+    t.bigint "site_id"
+    t.bigint "unit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_deployments_on_site_id"
+    t.index ["unit_id"], name: "index_deployments_on_unit_id"
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string "name"
@@ -32,5 +48,26 @@ ActiveRecord::Schema.define(version: 2020_06_01_200327) do
     t.index ["project_id"], name: "index_sites_on_project_id"
   end
 
+  create_table "types", force: :cascade do |t|
+    t.string "model"
+    t.string "brand"
+    t.string "url"
+    t.text "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "units", force: :cascade do |t|
+    t.string "serial"
+    t.string "status"
+    t.bigint "type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type_id"], name: "index_units_on_type_id"
+  end
+
+  add_foreign_key "deployments", "sites"
+  add_foreign_key "deployments", "units"
   add_foreign_key "sites", "projects"
+  add_foreign_key "units", "types"
 end
