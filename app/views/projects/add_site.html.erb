@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Create New Site</h1>
+
+<p>
+  <strong>Project:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>
+    <%= render 'sites/form', site: @project.sites.build %>
+  </strong>
+</p>
+
+<%= link_to 'Cancel', projects_path %>

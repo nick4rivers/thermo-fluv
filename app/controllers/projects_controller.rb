@@ -12,6 +12,11 @@ class ProjectsController < ApplicationController
   def show
   end
 
+  # GET /projects/1/add_site
+  def add_site
+    @project = Project.find(params[:id])
+  end
+
   # GET /projects/new
   def new
     @project = Project.new
