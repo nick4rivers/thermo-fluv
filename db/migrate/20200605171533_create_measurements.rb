@@ -1,7 +1,7 @@
-class CreateData < ActiveRecord::Migration[5.2]
+class CreateMeasurements < ActiveRecord::Migration[5.2]
   def change
-    create_table :data do |t|
-      t.datetime :date_time
+    create_table :measurements do |t|
+      t.datetime :moment
       t.float :temperature
       t.references :deployment, foreign_key: true
 

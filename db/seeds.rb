@@ -104,12 +104,12 @@ end
 
 puts '----- Seeded Deployments ------'
 
-50.times do |_datum|
-  Datum.create!(
-    temperature: 50.23324,
-    date_time: Time.now,
+50.times do |measurement|
+  Measurement.create!(
+    temperature: 1.233 + measurement,
+    moment: Time.now,
     deployment_id: Deployment.first.id
   )
 end
 
-puts '----- Seeded Data ------'
+puts '----- Seeded Measurements ------'

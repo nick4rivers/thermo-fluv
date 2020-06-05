@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_224520) do
+ActiveRecord::Schema.define(version: 2020_06_05_171533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(version: 2020_06_02_224520) do
     t.datetime "updated_at", null: false
     t.index ["site_id"], name: "index_deployments_on_site_id"
     t.index ["unit_id"], name: "index_deployments_on_unit_id"
+  end
+
+  create_table "measurements", force: :cascade do |t|
+    t.datetime "moment"
+    t.float "temperature"
+    t.bigint "deployment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deployment_id"], name: "index_measurements_on_deployment_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -78,6 +87,7 @@ ActiveRecord::Schema.define(version: 2020_06_02_224520) do
   add_foreign_key "data", "deployments"
   add_foreign_key "deployments", "sites"
   add_foreign_key "deployments", "units"
+  add_foreign_key "measurements", "deployments"
   add_foreign_key "sites", "projects"
   add_foreign_key "units", "types"
 end

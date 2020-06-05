@@ -1,10 +1,10 @@
-<%= form_with(model: datum, local: true) do |form| %>
-  <% if datum.errors.any? %>
+<%= form_with(model: measurement, local: true) do |form| %>
+  <% if measurement.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(datum.errors.count, "error") %> prohibited this datum from being saved:</h2>
+      <h2><%= pluralize(measurement.errors.count, "error") %> prohibited this measurement from being saved:</h2>
 
       <ul>
-      <% datum.errors.full_messages.each do |message| %>
+      <% measurement.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :date_time %>
-    <%= form.datetime_select :date_time %>
+    <%= form.label :moment %>
+    <%= form.datetime_select :moment %>
   </div>
 
   <div class="field">

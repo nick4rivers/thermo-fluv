@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :data
+  resources :measurements
   resources :deployments
   resources :units
   resources :types
