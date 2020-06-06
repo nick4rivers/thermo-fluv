@@ -17,6 +17,11 @@ class SitesController < ApplicationController
     @site = Site.new
   end
 
+  # GET /projects/1/add_site
+  def add_deployment
+    @site = Site.find(params[:id])
+  end
+
   # GET /sites/1/edit
   def edit
   end

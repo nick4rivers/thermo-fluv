@@ -1,13 +1,12 @@
 class Site < ApplicationRecord
-
-  includes DefaultImage
-
   belongs_to :project
   has_many :deployments
+
+  accepts_nested_attributes_for :deployments, reject_if: lambda { |attrs|  attrs['deploy_date'].blank? }
 
   after_initialize :set_defaults
 
   def set_defaults
-    self.image ||= DefaultImage.default_image_generator(height: '400', width: '300')
+    self.image ||= 'https://via.placeholder.com/400x300'
   end
 end

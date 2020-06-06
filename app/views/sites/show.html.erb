@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Site</h1>
+
 <p>
   <strong>Name:</strong>
   <%= @site.name %>
@@ -21,5 +23,29 @@
   <%= image_tag @site.image, alt: "This is alt text", class: "this-class" %>
 </p>
 
+<% if @site.deployments.any? %>
+<table>
+  <thead>
+    <tr>
+      <th>Deployed</th>
+      <th>Retrieved</th>
+      <th>Status</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @site.deployments.each do |deployment| %>
+    <tr>
+      <th scope="row"><%= deployment.deploy_date %></th>
+      <td><%= deployment.retrieve_date %></td>
+      <td><%= deployment.retrieve_status %></td>
+      <td><%= link_to  "Deployment", deployment_path(deployment.id) %></td>
+    </tr>
+    <% end  %>
+  </tbody>
+</table>
+<% end %>
+
 <%= link_to 'Edit', edit_site_path(@site) %> |
-<%= link_to 'Back', sites_path %>
+<%= link_to 'Add Deployment', add_deployment_path(@site) %> |
+<%= link_to 'Back', project_path(@site.project_id) %>

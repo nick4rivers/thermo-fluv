@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Project</h1>
+
 <p>
-  <strong>Name:</strong>
+  <strong>Project:</strong>
   <%= @project.name %>
 </p>
 
@@ -9,15 +11,26 @@
   <strong>Description:</strong>
   <%= @project.description %>
 </p>
+<p><strong>Number of Sites: </strong><%= @project.count_sites %> </p>
 
-<p>
-  <strong>Project Sites <%= @project.count_sites %> </strong>
-  <% @project.sites.each do |site| %>
-  <p>
-    <%= site.name  %>
-  </p>
-  <% end  %>
-</p>
+<% if @project.sites.any? %>
+<table>
+  <thead>
+    <tr>
+      <th>Site Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @project.sites.each do |site| %>
+    <tr>
+      <th scope="row"><%= site.name %></th>
+      <td><%= link_to  "Site", site_path(site.id) %></td>
+    </tr>
+    <% end  %>
+  </tbody>
+</table>
+<% end %>
+
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Add Site', add_site_path(@project) %> |

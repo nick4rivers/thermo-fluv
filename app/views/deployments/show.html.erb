@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Deployment</h1>
+
 <p>
   <strong>Deploy notes:</strong>
   <%= @deployment.deploy_notes %>
@@ -45,5 +47,24 @@
   <%= @deployment.unit %>
 </p>
 
+<% if @deployment.measurements.any? %>
+<table>
+  <thead>
+    <tr>
+      <th>Date Time</th>
+      <th>Temperature</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @deployment.measurements.each do |measurement| %>
+    <tr>
+      <th scope="row"><%= measurement.moment %></th>
+      <td><%= measurement.temperature %></td>
+    </tr>
+    <% end  %>
+  </tbody>
+</table>
+<% end %>
+
 <%= link_to 'Edit', edit_deployment_path(@deployment) %> |
-<%= link_to 'Back', deployments_path %>
+<%= link_to 'Back', site_path(@deployment.site_id) %>
