@@ -61,6 +61,11 @@ class MeasurementsController < ApplicationController
     end
   end
 
+  def import
+    Measurement.import(params[:file], params[:id])
+    redirect_to deployment_path(params[:id]), notice: "Measurements were imported"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_measurement

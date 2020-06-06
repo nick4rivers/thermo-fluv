@@ -47,6 +47,15 @@
   <%= @deployment.unit %>
 </p>
 
+<h3>Import Measurement Data</h3>
+<%= form_tag import_measurements_path(@deployment.id), multipart: true do %>
+<%= file_field_tag :file %>
+<%= submit_tag "Upload Data" %>
+<% end %>
+
+<%= link_to 'Edit', edit_deployment_path(@deployment) %>|
+<%= link_to 'Back', site_path(@deployment.site_id) %>
+
 <% if @deployment.measurements.any? %>
 <table>
   <thead>
@@ -65,6 +74,3 @@
   </tbody>
 </table>
 <% end %>
-
-<%= link_to 'Edit', edit_deployment_path(@deployment) %> |
-<%= link_to 'Back', site_path(@deployment.site_id) %>
