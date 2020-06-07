@@ -60,3 +60,5 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'bootstrap', '~> 4.5.0'
 
 gem 'jquery-rails'
+
+gem 'gon', '~> 6.2'

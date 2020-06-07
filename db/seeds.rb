@@ -22,6 +22,8 @@ puts '----- Seeded 10 Projects ------'
     name: "Site First Project - #{site}",
     description: "I always felt like I could do anything. That’s the main thing people are controlled by! Thoughts- their perception of themselves! They're slowed down by their perception of themselves. If you're taught you can’t do anything, you won’t do anything. I was taught I could do everything.",
     image: 'https://via.placeholder.com/400x300',
+    latitude: 44 * rand(0.8..1.3),
+    longitude: -120 * rand(0.8..1.3),
     project_id: Project.first.id
   )
 end
@@ -33,6 +35,8 @@ puts '----- Seeded First Sites ------'
     name: "Site Last Project - #{site}",
     description: 'There’s nothing I really wanted to do in life that I wasn’t able to get good at. That’s my skill. I’m not really specifically talented at anything except for the ability to learn. That’s what I do. That’s what I’m here for. Don’t be afraid to be wrong because you can’t learn anything from a compliment.',
     image: 'https://via.placeholder.com/400x300',
+    latitude: 44 * rand(0.8..1.3),
+    longitude: -120 * rand(0.8..1.3),
     project_id: Project.last.id
   )
 end
