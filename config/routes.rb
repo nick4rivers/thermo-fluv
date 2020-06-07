@@ -1,7 +1,17 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
+  root to: 'pages#home'
+
+  get 'pages/home'
+  get 'pages/about'
+  get 'pages/contact'
+
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
+
   resources :projects
   get 'projects/:id/add_site', to: 'projects#add_site', as: 'add_site'
-  
+
   resources :sites
   get 'sites/:id/add_deployment', to: 'sites#add_deployment', as: 'add_deployment'
 
