@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: thermo-fluv_development
+  database: eco-temp_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: thermo-fluv_test
+  database: eco-temp_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: thermo-fluv_production
-  username: thermo-fluv
-  password: <%= ENV['THERMO-FLUV_DATABASE_PASSWORD'] %>
+  database: eco-temp_production
+  username: eco-temp
+  password: <%= ENV['ECO-TEMP_DATABASE_PASSWORD'] %>
