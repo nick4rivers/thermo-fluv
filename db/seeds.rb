@@ -110,7 +110,7 @@ puts '----- Seeded Deployments ------'
 1000.times do |measurement|
   Measurement.create!(
     temperature: rand(1.1..21.3),
-    moment: Time.now,
+    moment: Time.now + measurement.hours,
     deployment_id: Deployment.first.id
   )
 end

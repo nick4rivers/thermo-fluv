@@ -51,10 +51,11 @@
 
 <%= link_to 'Edit', edit_deployment_path(@deployment), class: "btn btn-secondary" %>
 
+<%= line_chart @deployment.measurements.group_by_day(:moment).maximum(:temperature) %>
 
 <h3>Import Measurement Data</h3>
 <%= form_tag import_measurements_path(@deployment.id), multipart: true do %>
-<%= file_field_tag :file, class: "btn btn-secondary" %>
+<%= file_field_tag :file, class: "btn btn-outline-secondary" %>
 <%= submit_tag "Upload Data", class: "btn btn-secondary" %>
 <% end %>
 
