@@ -59,7 +59,6 @@ Type.create!(
 
 puts '----- Seeded Logger Types ------'
 
-# TODO: Seed Units
 5.times do |unit|
   Unit.create!(
     serial: "First Type - #{unit}",
@@ -108,9 +107,9 @@ end
 
 puts '----- Seeded Deployments ------'
 
-50.times do |measurement|
+1000.times do |measurement|
   Measurement.create!(
-    temperature: 1.233 + measurement,
+    temperature: rand(1.1..21.3),
     moment: Time.now,
     deployment_id: Deployment.first.id
   )
