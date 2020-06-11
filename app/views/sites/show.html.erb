@@ -31,7 +31,7 @@
     <% @site.deployments.each do |deployment| %>
     <tr>
       <th scope="row"><%= deployment.deploy_date.to_formatted_s(:long_ordinal) %></th>
-      <td><%= deployment.retrieve_date.to_formatted_s(:long_ordinal) %></td>
+      <td><%= deployment.display_retrieve_date %></td>
       <td><%= deployment.retrieve_status %></td>
       <td><%= link_to  "Deployment", deployment_path(deployment.id) %></td>
     </tr>

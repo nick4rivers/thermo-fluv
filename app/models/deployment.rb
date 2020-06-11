@@ -6,4 +6,11 @@ class Deployment < ApplicationRecord
   has_many :measurements, dependent: :destroy
 
   accepts_nested_attributes_for :measurements
+
+  def display_retrieve_date
+    return 'Not Retrieved' if retrieve_date.nil?
+
+  else
+    retrieve_date.to_formatted_s(:long_ordinal)
+  end
 end
