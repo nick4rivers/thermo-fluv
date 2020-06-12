@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class DeploymentsController < ApplicationController
-  before_action :set_deployment, only: [:show, :edit, :update, :destroy]
+  before_action :set_deployment, only: %i[show edit update destroy]
 
   # GET /deployments
   # GET /deployments.json
@@ -9,8 +11,7 @@ class DeploymentsController < ApplicationController
 
   # GET /deployments/1
   # GET /deployments/1.json
-  def show
-  end
+  def show; end
 
   # GET /deployments/new
   def new
@@ -18,8 +19,7 @@ class DeploymentsController < ApplicationController
   end
 
   # GET /deployments/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /deployments
   # POST /deployments.json
@@ -62,13 +62,14 @@ class DeploymentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_deployment
-      @deployment = Deployment.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def deployment_params
-      params.require(:deployment).permit(:deploy_notes, :deploy_date, :deploy_time, :retrieve_status, :retrieve_notes, :retrieve_date, :retrieve_time, :site_id, :unit_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_deployment
+    @deployment = Deployment.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def deployment_params
+    params.require(:deployment).permit(:deploy_notes, :deploy_date, :deploy_time, :retrieve_status, :retrieve_notes, :retrieve_date, :retrieve_time, :site_id, :unit_id)
+  end
 end

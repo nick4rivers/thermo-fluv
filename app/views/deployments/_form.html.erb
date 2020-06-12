@@ -1,8 +1,7 @@
 <%= form_with(model: deployment, local: true) do |form| %>
 <% if deployment.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(deployment.errors.count, "error") %> prohibited this deployment from being saved:</h2>
-
+<div id="error_explanation" class="alert alert-danger" role="alert">
+  <h4><%= pluralize(deployment.errors.count, "error") %> prohibited this deployment from being created:</h4>
   <ul>
     <% deployment.errors.full_messages.each do |message| %>
     <li><%= message %></li>
@@ -28,7 +27,7 @@
 
 <div class="field">
   <%= form.label :retrieve_status %>
-  <%= form.text_field :retrieve_status, class: 'form-control' %>
+  <%= form.select :retrieve_status, ['OK', 'Dry', 'Burried', 'Lost'], {include_blank: true}, { class: 'form-control' } %>
 </div>
 
 <div class="field">
@@ -53,7 +52,7 @@
 
 <div class="field">
   <%= form.label :unit_id %>
-  <%= collection_select( :deployment, :unit_id, Unit.all, :id, :serial, { include_blank: true, multiple: false}, { class: 'form-control' }) %>
+  <%= collection_select :deployment, :unit_id, Unit.all, :id, :serial, { include_blank: true, multiple: false}, { class: 'form-control' } %>
 </div>
 
 <div class="actions">
