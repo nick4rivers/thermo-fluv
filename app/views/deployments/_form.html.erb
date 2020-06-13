@@ -15,9 +15,10 @@
   <div class="col-md-6">
     <div class="form-group">
       <%= form.label :site_id %>
-      <%= collection_select :deployment, :site_id, Site.all, :id, :name, { include_blank: true, multiple: false}, { class: 'form-control' } %>
+      <%= collection_select :deployment, :site_id, Site.all, :id, :name, { multiple: false }, { class: 'form-control' } %>
     </div>
   </div>
+
   <div class="col-md-6">
     <div class="form-group">
       <%= form.label :unit_id %>
@@ -25,8 +26,6 @@
     </div>
   </div>
 </div>
-
-
 
 <div class="row">
   <div class="col-md-6">
