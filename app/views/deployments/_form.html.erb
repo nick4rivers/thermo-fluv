@@ -1,4 +1,5 @@
 <%= form_with(model: deployment, local: true) do |form| %>
+
 <% if deployment.errors.any? %>
 <div id="error_explanation" class="alert alert-danger" role="alert">
   <h4><%= pluralize(deployment.errors.count, "error") %> prohibited this deployment from being created:</h4>
@@ -10,58 +11,86 @@
 </div>
 <% end %>
 
-<div class="form-group">
-  <%= form.label :deploy_notes %>
-  <%= form.text_area :deploy_notes, class: 'form-control' %>
-</div>
-
-<div class="form-group">
-  <%= form.label :deploy_date %>
-  <%= form.date_select :deploy_date %>
-</div>
-
-<div class="form-group">
-  <%= form.label :deploy_time %>
-  <%= form.time_select :deploy_time %>
-</div>
-
-<div class="form-group">
-  <%= form.label :retrieve_status %>
-  <%= form.select :retrieve_status, ['OK', 'Dry', 'Burried', 'Lost'], {include_blank: true}, { class: 'form-control' } %>
-</div>
-
-<div class="form-group">
-  <%= form.label :retrieve_notes %>
-  <%= form.text_area :retrieve_notes, class: "form-control"  %>
-</div>
-
-<div class="form-group">
-  <%= form.label :retrieve_date %>
-  <div class="d-flex flex-row justify-content-between align-items-center">
-    <%= form.date_select :retrieve_date, { include_blank: true }, { class: "form-control mr-2" } %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= form.label :site_id %>
+      <%= collection_select :deployment, :site_id, Site.all, :id, :name, { include_blank: true, multiple: false}, { class: 'form-control' } %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= form.label :unit_id %>
+      <%= collection_select :deployment, :unit_id, Unit.all, :id, :serial, { include_blank: true, multiple: false}, { class: 'form-control' } %>
+    </div>
   </div>
 </div>
 
-<div class="form-group">
-  <%= form.label :retrieve_time %>
-  <i class="fa fa-clock-o" aria-hidden="true"></i>
-  <div class="d-flex flex-row justify-content-between align-items-center">
-    <%= form.time_select :retrieve_time, { include_blank: true }, { class: "form-control mr-2" } %>
+
+
+<div class="row">
+  <div class="col-md-6">
+    <h3>Deployment</h3>
+    <hr>
+
+    <div class="form-group">
+      <%= form.label :deploy_date %>
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <%= form.date_select :deploy_date, { include_blank: true }, { class: "form-control mr-2" } %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :deploy_time %>
+      <i class="fa fa-clock-o" aria-hidden="true"></i>
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <%= form.time_select :deploy_time, { include_blank: true }, { class: "form-control mr-2" } %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :deploy_notes %>
+      <%= form.text_area :deploy_notes, class: 'form-control' %>
+    </div>
   </div>
 
-</div>
+  <div class="col-md-6">
+    <h3>Retrieval</h3>
+    <hr>
+    <div class="form-group">
+      <%= form.label :retrieve_date %>
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <%= form.date_select :retrieve_date, { include_blank: true }, { class: "form-control mr-2" } %>
+      </div>
+    </div>
 
-<div class="form-group">
-  <%= form.label :site_id %>
-  <%= form.text_field :site_id, class: 'form-control' %>
-</div>
+    <div class="form-group">
+      <%= form.label :retrieve_time %>
+      <i class="fa fa-clock-o" aria-hidden="true"></i>
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <%= form.time_select :retrieve_time, { include_blank: true }, { class: "form-control mr-2" } %>
+      </div>
+    </div>
 
-<div class="form-group">
-  <%= form.label :unit_id %>
-  <%= collection_select :deployment, :unit_id, Unit.all, :id, :serial, { include_blank: true, multiple: false}, { class: 'form-control' } %>
+
+    <div class="form-group">
+      <%= form.label :retrieve_notes %>
+      <%= form.text_area :retrieve_notes, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :retrieve_status %>
+      <%= form.select :retrieve_status, ['OK', 'Dry', 'Burried', 'Lost'], {include_blank: true}, { class: 'form-control' } %>
+    </div>
+
+  </div>
+
 </div>
 
 <div class="actions">
-  <%= form.submit class: 'btn btn-secondary' %>
+  <%= form.submit class: 'btn btn-primary' %>
 </div>
 <% end %>
