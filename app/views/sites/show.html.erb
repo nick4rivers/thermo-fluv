@@ -13,10 +13,7 @@
 
   </div>
   <div class="col-md-6">
-    <p>
-      <%= image_tag @site.image, alt: "This is alt text", class: "this-class" %>
-    </p>
-
+    <%= image_tag @site.image.url, alt: "This is alt text", class: "rounded img-fluid", width: 600 %>
   </div>
 </div>
 

@@ -13,6 +13,8 @@ class Site < ApplicationRecord
 
   after_initialize :set_defaults
 
+  mount_uploader :image, SiteUploader
+
   def set_defaults
     self.image ||= 'https://via.placeholder.com/400x300'
   end

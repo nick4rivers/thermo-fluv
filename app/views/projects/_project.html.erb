@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-3">
     <% if project.sites.any? %>
-    <%= image_tag  project.sites.first.image, alt: "Project Photo", class: 'rounded' 'img-fluid', width: 200 %>
+    <%= image_tag  project.sites.first.image.url, alt: "Project Photo", class: "rounded img-fluid", width: 200 %>
     <% else %>
     <p>No Sites</p>
     <% end %>
