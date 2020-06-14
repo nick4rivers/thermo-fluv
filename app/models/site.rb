@@ -11,11 +11,5 @@ class Site < ApplicationRecord
   validates_numericality_of :latitude, greater_than: -90, less_than: 90, message: 'must be in decimal notation'
   validates_numericality_of :longitude, greater_than: -180, less_than: 180, message: 'must be in decimal notation'
 
-  after_initialize :set_defaults
-
   mount_uploader :image, SiteUploader
-
-  def set_defaults
-    self.image ||= 'https://via.placeholder.com/400x300'
-  end
 end

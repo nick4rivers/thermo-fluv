@@ -59,13 +59,13 @@
   <div class="col-md-4">
     <%= link_to 'Edit Deployment', edit_deployment_path(@deployment), class: "btn btn-primary" %>
   </div>
-  <div class="col-md-8">
-    <p class="lead">Import Measurement Data</p>
-    <%= form_tag import_measurements_path(@deployment.id), multipart: true do %>
-    <%= file_field_tag :file, class: "btn btn-outline-primary" %>
-    <%= submit_tag "Upload Data", class: "btn btn-primary" %>
-    <% end %>
 
+
+  <div class="col-md-8">
+    <%= form_tag import_measurements_path(@deployment.id), multipart: true do %>
+    <label class="btn btn-secondary">Import Temperature Data <%= file_field_tag :file, style: 'display:none;' %></label>
+    <%= submit_tag "Upload Data", class: "btn btn-secondary" %>
+    <% end %>
   </div>
 </div>
 <hr>
