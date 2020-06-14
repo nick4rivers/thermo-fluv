@@ -5,15 +5,15 @@
 
 <div class="row">
   <div class="col-md-6">
+    <%= image_tag @site.image.url, alt: "This is alt text", class: "rounded img-fluid", width: 600 %>
+  </div>
+  <div class="col-md-6">
     <strong>Project Name:</strong>
     <p><%= @site.project.name %></p>
 
     <strong>Description:</strong>
     <p><%= @site.description %></p>
 
-  </div>
-  <div class="col-md-6">
-    <%= image_tag @site.image.url, alt: "This is alt text", class: "rounded img-fluid", width: 600 %>
   </div>
 </div>
 
