@@ -71,6 +71,11 @@
 <hr>
 
 <% if @deployment.measurements.any? %>
-<h4>Total Measurements: <%= @deployment.measurements.count %></h4>
-<%= line_chart @deployment.measurements.group_by_day(:moment).maximum(:temperature) %>
-<% end %>
+<div class="card border-0 shadow mb-4">
+  <div class="card-body">
+    <h4>Total Measurements: <%= @deployment.measurements.count %></h4>
+    <%= line_chart @deployment.measurements.group_by_day(:moment).maximum(:temperature) %>
+    <% end %>
+  </div>
+
+</div>
