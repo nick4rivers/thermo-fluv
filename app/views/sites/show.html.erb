@@ -1,13 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Project', project_path(@site.project_id), class: "btn btn-info" %>
-<h2><%= @site.name %></h2>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to 'Projects', projects_path %></li>
+    <li class="breadcrumb-item"><%= link_to 'Project', project_path(@site.project_id) %></li>
+
+    <li class="breadcrumb-item active" aria-current="page">Site: <%= @site.name %></li>
+  </ol>
+</nav>
+
 
 <div class="row">
   <div class="col-md-6">
     <%= image_tag @site.image.url, alt: "This is alt text", class: "rounded img-fluid", width: 600 %>
   </div>
   <div class="col-md-6">
+    <h2><%= @site.name %></h2>
     <strong>Project Name:</strong>
     <p><%= @site.project.name %></p>
 
