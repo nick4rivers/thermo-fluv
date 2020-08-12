@@ -56,7 +56,7 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'bootstrap', '~> 4.5.0'
-gem 'chartkick', '~> 3.3', '>= 3.3.1'
+gem 'chartkick', '~> 3.4'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'gon', '~> 6.2'
